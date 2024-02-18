@@ -1,0 +1,88 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: black;
+    overflow: hidden; /* Mantém o overflow hidden para evitar a barra de rolagem */
+}
+
+.foragida-container {
+    position: relative;
+}
+
+.foragida {
+    color: black;
+    font-size: 3em;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.foragida-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,0,0,0.8) 0%, rgba(255,0,0,0) 70%);
+    animation: flashlight 1s infinite alternate;
+}
+
+@keyframes flashlight {
+    0% {
+        background-color: black;
+    }
+    50% {
+        background-color: red;
+    }
+    100% {
+        background-color: black;
+    }
+}
+
+.person-image {
+    max-width: 100%;
+    margin-top: 20px;
+    border: 5px solid black;
+    border-radius: 50%;
+}
+
+.person-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.details-overlay {
+    margin-top: 20px; /* Espaçamento entre a imagem e o quadrado branco */
+    width: fit-content; /* Ajustar a largura ao conteúdo */
+    height: 30px; /* Altura desejada do quadrado branco */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid black; /* Adicionando uma borda preta de 2px ao contêiner */
+    border-radius: 5px; /* Arredondando as bordas */
+}
+
+.overlay-content {
+    background-color: white;
+    padding: 1px; /* Reduzindo o padding para tornar a caixa menor */
+    border-radius: 5px;
+    font-size: 0.7em;
+    display: block;
+}
+
+.overlay-content.active {
+    display: block; /* Exibir quando ativa */
+}
